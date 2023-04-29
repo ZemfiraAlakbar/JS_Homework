@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+table ,th, td {
+    border: 1px solid black;
+    border-spacing: 0;
+    padding: 20px;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+input {
+    outline: none;
+    margin: 1%;
+    margin-left: 23%;
+    padding: 0.5%;
+    width: 54%;
+}
+section table thead th .fa-arrow-up {
+    display: none;
+}
