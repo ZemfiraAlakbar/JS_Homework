@@ -20,8 +20,8 @@ async function getAllData() {
         </div>
 
         <div class="mx-3">
-        <i class="fa-solid fa-pen" onclick=editedUser("${el.id}")></i>
-        <i class="fa-solid fa-trash-can" onclick=deleteUser("${el.id}")></i>
+        <a href="editUser.html?id=${el.id}"><i class="fa-solid fa-pen text-success" onclick=editedUser("${el.id}")></i></a>
+        <i class="fa-solid fa-trash-can text-danger" onclick=deleteUser("${el.id}",this) style="cursor: pointer;"></i>
         </div>
         `;
 
@@ -39,18 +39,15 @@ async function getAllData() {
 }
 getAllData();
 
-async function deleteUser(id) {
+async function deleteUser(id,btn) {
   await fetch(`http://localhost:8080/users/${id}`, {
     method: "DELETE",
   });
   box.innerHTML = "";
   getAllData();
+  btn.parentElement.parentElement.remove()
 }
 
 addBtn.addEventListener('click',function () {
     window.location.href="addUser.html"
 })
-
-async function editedUser() {
-    location.href='editUser.html'
-}
